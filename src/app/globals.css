@@ -79,3 +79,41 @@ body {
   background: var(--bg-primary);
   color: var(--text-primary);
 }
+
+@keyframes growth-dot-in {
+  from {
+    transform: scale(0);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes growth-line-in {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.growth-dot {
+  border-radius: 999px;
+  flex-shrink: 0;
+  transform: scale(0);
+  opacity: 0;
+  animation: growth-dot-in 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  animation-delay: var(--growth-delay, 0s);
+}
+
+.growth-line {
+  height: 2px;
+  flex: 1 1 auto;
+  transform-origin: left center;
+  transform: scaleX(0);
+  animation: growth-line-in 0.4s ease-out forwards;
+  animation-delay: var(--growth-delay, 0s);
+}
