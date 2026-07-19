@@ -80,6 +80,8 @@ export interface BusinessProfile {
   sandboxInputs: SandboxInputs | null;
   hasOverdraft: boolean;
   altCreditUnlocked: boolean;
+  aiRiskDaysAway: number | null;
+  aiRiskAdvice: string | null;
 }
 
 export interface AppState {

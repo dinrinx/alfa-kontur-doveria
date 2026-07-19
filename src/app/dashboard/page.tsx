@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { BottomNav } from "@/components/ui/BottomNav";
 import { Card } from "@/components/ui/Card";
 import { TrustRatingRing } from "@/components/ui/TrustRatingRing";
@@ -34,6 +35,25 @@ export default function DashboardPage() {
               {activeProfile.legalStatusLabel}
             </span>
           </Card>
+        </div>
+
+        <div className="px-6 pt-3">
+          <Link href="/ai-assistant" className="block">
+            <Card className="flex items-center gap-3">
+              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-xl">
+                {activeProfile.aiRiskDaysAway === null ? "🙂" : "⚠️"}
+              </span>
+              <div className="flex-1">
+                <p className="text-body font-semibold text-ink">
+                  {activeProfile.aiRiskDaysAway === null
+                    ? "AI-ассистент: всё в порядке"
+                    : `AI-ассистент: риск через ${activeProfile.aiRiskDaysAway} дней`}
+                </p>
+                <p className="mt-0.5 text-caption text-text-secondary">Аналитика и рекомендации</p>
+              </div>
+              <span className="text-ink">›</span>
+            </Card>
+          </Link>
         </div>
 
         <div className="mt-6 flex flex-col items-center px-6">

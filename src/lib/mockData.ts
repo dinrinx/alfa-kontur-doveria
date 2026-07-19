@@ -58,6 +58,8 @@ const beauty: BusinessProfile = {
   },
   hasOverdraft: false,
   altCreditUnlocked: false,
+  aiRiskDaysAway: null,
+  aiRiskAdvice: null,
 };
 
 const horeca: BusinessProfile = {
@@ -114,6 +116,8 @@ const horeca: BusinessProfile = {
   },
   hasOverdraft: false,
   altCreditUnlocked: false,
+  aiRiskDaysAway: 12,
+  aiRiskAdvice: "Сократи закупки продуктов на 15% в этом месяце или запусти сбор «на устойчивость» — так пройдёте август без разрыва.",
 };
 
 const retail: BusinessProfile = {
@@ -172,6 +176,8 @@ const retail: BusinessProfile = {
   },
   hasOverdraft: false,
   altCreditUnlocked: false,
+  aiRiskDaysAway: null,
+  aiRiskAdvice: null,
 };
 
 export const mockProfiles: Record<BusinessProfile["id"], BusinessProfile> = {
