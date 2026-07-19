@@ -3,14 +3,18 @@
 import Link from "next/link";
 import { BottomNav } from "@/components/ui/BottomNav";
 import { Card } from "@/components/ui/Card";
+import { LegalContextPopup } from "@/components/ui/LegalContextPopup";
 import { TrustRatingRing } from "@/components/ui/TrustRatingRing";
 import { formatRub } from "@/lib/format";
+import { LEGAL_CARDS } from "@/lib/legalCards";
 import { useAppState } from "@/state/AppStateContext";
 import { ProfileSwitcher } from "./_components/ProfileSwitcher";
 
 export default function DashboardPage() {
   const { activeProfile } = useAppState();
   const { trustRating } = activeProfile;
+  const beautyLicenseCard = LEGAL_CARDS.find((c) => c.id === "beauty-license")!;
+  const showLegalPopup = activeProfile.id === "beauty" && activeProfile.products.some((p) => /касс/i.test(p));
 
   return (
     <div className="flex justify-center bg-surface">
@@ -20,7 +24,16 @@ export default function DashboardPage() {
             <p className="text-caption text-text-secondary">Контур доверия</p>
             <p className="text-card-title text-ink">{activeProfile.ownerName}</p>
           </div>
-          <ProfileSwitcher />
+          <div className="flex items-center gap-2">
+            <ProfileSwitcher />
+            <Link
+              href="/legal"
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-surface text-base"
+              aria-label="Поиск по юридическим карточкам"
+            >
+              🔍
+            </Link>
+          </div>
         </div>
 
         <div className="px-6 pt-5">
@@ -100,6 +113,7 @@ export default function DashboardPage() {
         </div>
       </div>
       <BottomNav active="main" />
+      {showLegalPopup && <LegalContextPopup card={beautyLicenseCard} />}
     </div>
   );
 }
