@@ -11,6 +11,7 @@ export function LegalContextPopup({ card }: { card: LegalCard }) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time read of localStorage on mount, SSR has no access to it
     if (!localStorage.getItem(storageKey)) setVisible(true);
   }, [storageKey]);
 
