@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/Button";
 import { ProgressDots } from "@/components/ui/ProgressDots";
 import { useAppState } from "@/state/AppStateContext";
 import { GrowthAnimation } from "./_components/GrowthAnimation";
+import { OrbitAnimation } from "./_components/OrbitAnimation";
 
 interface Slide {
   badgeBg: string;
@@ -81,6 +82,8 @@ export default function OnboardingIntroPage() {
         <div className="flex flex-1 flex-col justify-center px-6 py-10">
           {step === 0 ? (
             <GrowthAnimation key={step} />
+          ) : step === 1 ? (
+            <OrbitAnimation key={step} />
           ) : (
             <div className={`mb-8 flex h-16 w-16 items-center justify-center rounded-lg text-3xl ${slide.badgeBg}`}>
               {slide.glyph}
