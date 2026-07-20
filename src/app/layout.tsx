@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Golos_Text } from "next/font/google";
 import "./globals.css";
+import { PhoneFrame } from "@/components/ui/PhoneFrame";
 import { AppStateProvider } from "@/state/AppStateContext";
 
 const golosText = Golos_Text({
@@ -22,7 +23,9 @@ export default function RootLayout({
   return (
     <html lang="ru" className={`${golosText.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-white text-ink font-sans">
-        <AppStateProvider>{children}</AppStateProvider>
+        <AppStateProvider>
+          <PhoneFrame>{children}</PhoneFrame>
+        </AppStateProvider>
       </body>
     </html>
   );

@@ -10,8 +10,6 @@ import { OrbitAnimation } from "./_components/OrbitAnimation";
 import { TicketAnimation } from "./_components/TicketAnimation";
 
 interface Slide {
-  badgeBg: string;
-  glyph: string;
   title: string;
   body: string;
   cta: string;
@@ -19,31 +17,18 @@ interface Slide {
 
 const SLIDES: Slide[] = [
   {
-    badgeBg: "bg-[#EDE7F6]",
-    glyph: "🌱",
     title: "Народные инвестиции — путь бизнеса целиком",
     body: "Экосистема ведёт от идеи до масштабирования и кризисов — на каждом этапе свой набор инструментов.",
     cta: "Продолжить",
   },
   {
-    badgeBg: "bg-[#DCEBF7]",
-    glyph: "🤝",
     title: "Не кредит — доверие сообщества",
     body: "Банк не оценивает прошлое. Жизнеспособность идеи доказывают люди, которые в неё поверили.",
     cta: "Продолжить",
   },
   {
-    badgeBg: "bg-[#F6E3DD]",
-    glyph: "🎁",
     title: "Донатеры получают не доход, а причастность",
     body: "Скидки, промокоды, ранний доступ — ощущение совместного запуска, а не просто перевод денег.",
-    cta: "Погнали",
-  },
-  {
-    badgeBg: "bg-[#F4F5F7]",
-    glyph: "🧮",
-    title: "Привет! Расскажи о своей идее — посчитаем вместе",
-    body: "Пара вопросов о нише и цифрах — и мы покажем, сколько нужно денег на старт и стоит ли рисковать.",
     cta: "Начать",
   },
 ];
@@ -85,12 +70,8 @@ export default function OnboardingIntroPage() {
             <GrowthAnimation key={step} />
           ) : step === 1 ? (
             <OrbitAnimation key={step} />
-          ) : step === 2 ? (
-            <TicketAnimation key={step} />
           ) : (
-            <div className={`mb-8 flex h-16 w-16 items-center justify-center rounded-lg text-3xl ${slide.badgeBg}`}>
-              {slide.glyph}
-            </div>
+            <TicketAnimation key={step} />
           )}
           <h1 className="text-h1 text-ink">{slide.title}</h1>
           <p className="mt-4 text-body text-text-secondary">{slide.body}</p>

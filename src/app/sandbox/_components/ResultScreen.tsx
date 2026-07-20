@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
+import { InfoTerm } from "@/components/ui/InfoTerm";
 import { formatRub } from "@/lib/format";
 import type { RiskLevel, SandboxResult } from "@/types";
 
@@ -15,17 +16,33 @@ export function ResultScreen({ result, onNext }: { result: SandboxResult; onNext
 
       <div className="mt-6 flex flex-col gap-3">
         <Card>
-          <p className="text-caption uppercase text-text-secondary">Стартовый капитал</p>
+          <p className="text-caption uppercase text-text-secondary">
+            <InfoTerm
+              term="Стартовый капитал"
+              definition="Сумма, которая нужна, чтобы запустить бизнес и продержаться первые месяцы"
+            />
+          </p>
           <p className="mt-1 text-[26px] font-bold text-ink">≈ {formatRub(result.capital)}</p>
         </Card>
 
         <Card>
-          <p className="text-caption uppercase text-text-secondary">Срок окупаемости</p>
+          <p className="text-caption uppercase text-text-secondary">
+            <InfoTerm
+              term="Срок окупаемости"
+              definition="Через сколько месяцев бизнес начнёт приносить больше, чем тратит"
+            />
+          </p>
           <p className="mt-1 text-[26px] font-bold text-ink">≈ {result.paybackMonths} мес.</p>
         </Card>
 
         <Card>
-          <p className="text-caption uppercase text-text-secondary">Риск кассового разрыва</p>
+          <p className="text-caption uppercase text-text-secondary">
+            Риск{" "}
+            <InfoTerm
+              term="кассового разрыва"
+              definition="Риск, что в моменте не хватит денег на текущие расходы"
+            />
+          </p>
           <div className="mt-3 flex gap-1">
             {(["low", "medium", "high"] as RiskLevel[]).map((level, i) => (
               <span

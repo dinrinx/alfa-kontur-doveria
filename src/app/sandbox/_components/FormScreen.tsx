@@ -1,17 +1,51 @@
 import { Button } from "@/components/ui/Button";
+import { InfoTerm } from "@/components/ui/InfoTerm";
 import { Input } from "@/components/ui/Input";
 import { ProgressDots } from "@/components/ui/ProgressDots";
 import { NICHES } from "@/lib/niches";
 import type { IndustryId, SandboxInputs } from "@/types";
 
-const FIELD_TITLES = [
-  "В какой нише планируешь запускаться?",
-  "В каком городе будешь работать?",
-  "Сколько выручки ждёшь в месяц?",
-  "Какие постоянные расходы в месяц?",
-  "Какой средний чек?",
-  "Сколько клиентов ждёшь в месяц?",
-];
+const STEP_COUNT = 6;
+
+function renderTitle(step: number) {
+  switch (step) {
+    case 0:
+      return "В какой нише планируешь запускаться?";
+    case 1:
+      return "В каком городе будешь работать?";
+    case 2:
+      return (
+        <>
+          Сколько{" "}
+          <InfoTerm
+            term="выручки"
+            definition="Все деньги, которые приходят от клиентов, до вычета расходов"
+          />{" "}
+          ждёшь в месяц?
+        </>
+      );
+    case 3:
+      return (
+        <>
+          Какие{" "}
+          <InfoTerm
+            term="постоянные расходы"
+            definition="Траты, которые не зависят от продаж: аренда, зарплата, связь"
+          />{" "}
+          в месяц?
+        </>
+      );
+    case 4:
+      return (
+        <>
+          Какой{" "}
+          <InfoTerm term="средний чек" definition="Сумма, которую в среднем платит один клиент за визит" />?
+        </>
+      );
+    default:
+      return "Сколько клиентов ждёшь в месяц?";
+  }
+}
 
 interface FormScreenProps {
   step: number;
@@ -22,7 +56,7 @@ interface FormScreenProps {
 }
 
 export function FormScreen({ step, values, onChange, onNext, onBack }: FormScreenProps) {
-  const isLast = step === FIELD_TITLES.length - 1;
+  const isLast = step === STEP_COUNT - 1;
   const canProceed =
     step === 0
       ? !!values.niche
@@ -42,11 +76,11 @@ export function FormScreen({ step, values, onChange, onNext, onBack }: FormScree
         <button onClick={onBack} className="text-2xl leading-none text-ink" aria-label="Назад">
           ‹
         </button>
-        <ProgressDots total={FIELD_TITLES.length} current={step} />
+        <ProgressDots total={STEP_COUNT} current={step} />
       </div>
 
       <div className="flex flex-1 flex-col justify-center py-10">
-        <h2 className="mb-6 text-h2 text-ink">{FIELD_TITLES[step]}</h2>
+        <h2 className="mb-6 text-h2 text-ink">{renderTitle(step)}</h2>
 
         {step === 0 && (
           <div className="flex flex-col gap-3">
