@@ -144,3 +144,23 @@ body {
   animation: growth-dot-in 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
   animation-delay: var(--growth-delay, 0s);
 }
+
+.ticket-pop {
+  transform: scale(0);
+  opacity: 0;
+  animation: growth-dot-in 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes ticket-breathe {
+  0%,
+  100% {
+    transform: scale(1) rotate(-1deg);
+  }
+  50% {
+    transform: scale(1.035) rotate(1deg);
+  }
+}
+
+.ticket-idle {
+  animation: ticket-breathe 3.2s ease-in-out 0.5s infinite;
+}

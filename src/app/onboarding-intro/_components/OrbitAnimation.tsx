@@ -1,7 +1,7 @@
-const CONTAINER = 224;
-const BIG = 80;
-const RING_R = 88;
-const DOT = 16;
+const HEIGHT = 216;
+const BIG = 72;
+const RING_R = 82;
+const DOT = 14;
 
 const DOTS = [
   { angle: 0, color: "var(--accent-red)", delay: 0.45 },
@@ -14,7 +14,7 @@ const DOTS = [
 
 export function OrbitAnimation() {
   return (
-    <div className="mb-8 rounded-2xl bg-surface" style={{ width: CONTAINER, height: CONTAINER, margin: "0 auto 32px" }}>
+    <div className="mb-8 w-full rounded-2xl bg-surface" style={{ height: HEIGHT }}>
       <div className="relative h-full w-full">
         <span
           className="growth-dot absolute rounded-full"

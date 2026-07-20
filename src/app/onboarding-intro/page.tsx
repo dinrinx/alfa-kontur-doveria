@@ -7,6 +7,7 @@ import { ProgressDots } from "@/components/ui/ProgressDots";
 import { useAppState } from "@/state/AppStateContext";
 import { GrowthAnimation } from "./_components/GrowthAnimation";
 import { OrbitAnimation } from "./_components/OrbitAnimation";
+import { TicketAnimation } from "./_components/TicketAnimation";
 
 interface Slide {
   badgeBg: string;
@@ -84,6 +85,8 @@ export default function OnboardingIntroPage() {
             <GrowthAnimation key={step} />
           ) : step === 1 ? (
             <OrbitAnimation key={step} />
+          ) : step === 2 ? (
+            <TicketAnimation key={step} />
           ) : (
             <div className={`mb-8 flex h-16 w-16 items-center justify-center rounded-lg text-3xl ${slide.badgeBg}`}>
               {slide.glyph}

@@ -1,6 +1,6 @@
 export function GrowthAnimation() {
   return (
-    <div className="mb-8 flex h-32 w-full items-center gap-2 rounded-2xl bg-surface px-7">
+    <div className="mb-8 flex h-64 w-full items-center gap-2 rounded-2xl bg-surface px-7">
       <span
         className="growth-dot"
         style={{ width: 14, height: 14, backgroundColor: "var(--border-default)", ["--growth-delay" as string]: "0s" }}
