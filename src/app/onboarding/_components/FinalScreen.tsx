@@ -7,7 +7,7 @@ export function FinalScreen({ profile, onProceed }: { profile: BusinessProfile; 
   const amount = profile.sandboxResult?.recommendedAmount ?? 0;
 
   return (
-    <div className="flex min-h-screen flex-col px-6 py-8">
+    <div className="flex min-h-screen md:min-h-0 md:h-full flex-col px-6 py-8">
       <div className="flex h-12 w-12 items-center justify-center rounded-full bg-surface text-2xl">✓</div>
       <h1 className="mt-4 text-h1 text-ink">Счёт открыт</h1>
       <p className="mt-3 text-body text-text-secondary">

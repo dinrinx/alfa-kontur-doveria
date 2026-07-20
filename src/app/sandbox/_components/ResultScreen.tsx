@@ -11,7 +11,7 @@ export function ResultScreen({ result, onNext }: { result: SandboxResult; onNext
   const activeIndex = RISK_INDEX[result.risk];
 
   return (
-    <div className="flex min-h-screen flex-col px-6 py-8">
+    <div className="flex min-h-screen md:min-h-0 md:h-full flex-col px-6 py-8">
       <h1 className="text-h1 text-ink">Готово! Вот что получилось</h1>
 
       <div className="mt-6 flex flex-col gap-3">

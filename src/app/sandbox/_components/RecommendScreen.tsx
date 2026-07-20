@@ -8,7 +8,7 @@ export function RecommendScreen({ niche, onOpenAccount }: { niche: IndustryId; o
   const rec = NICHE_RECOMMENDATIONS[niche];
 
   return (
-    <div className="flex min-h-screen flex-col px-6 py-8">
+    <div className="flex min-h-screen md:min-h-0 md:h-full flex-col px-6 py-8">
       <p className="text-caption font-semibold uppercase text-red">Для твоей ниши: {meta.label}</p>
       <h1 className="mt-2 text-h1 text-ink">{rec.heading}</h1>
 

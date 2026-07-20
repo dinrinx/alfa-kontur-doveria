@@ -13,7 +13,7 @@ export function PhoneAuthScreen({ onDone }: { onDone: () => void }) {
 
   if (phase === "phone") {
     return (
-      <div className="flex min-h-screen flex-col px-6 py-8">
+      <div className="flex min-h-screen md:min-h-0 md:h-full flex-col px-6 py-8">
         <h1 className="text-h1 text-ink">Твой номер телефона</h1>
         <p className="mt-3 text-body text-text-secondary">Пришлём код подтверждения по SMS.</p>
         <div className="mt-6">
@@ -36,7 +36,7 @@ export function PhoneAuthScreen({ onDone }: { onDone: () => void }) {
 
   if (phase === "sms") {
     return (
-      <div className="flex min-h-screen flex-col px-6 py-8">
+      <div className="flex min-h-screen md:min-h-0 md:h-full flex-col px-6 py-8">
         <h1 className="text-h1 text-ink">Введи код из SMS</h1>
         <p className="mt-3 text-body text-text-secondary">Отправили на {phone || "твой номер"}</p>
         <div className="mt-10">
@@ -52,7 +52,7 @@ export function PhoneAuthScreen({ onDone }: { onDone: () => void }) {
   }
 
   return (
-    <div className="flex min-h-screen flex-col px-6 py-8">
+    <div className="flex min-h-screen md:min-h-0 md:h-full flex-col px-6 py-8">
       <h1 className="text-h1 text-ink">Придумай PIN-код</h1>
       <p className="mt-3 text-body text-text-secondary">Он понадобится для входа в приложение</p>
       <div className="mt-10">

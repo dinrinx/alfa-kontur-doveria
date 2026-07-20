@@ -71,7 +71,7 @@ export function FormScreen({ step, values, onChange, onNext, onBack }: FormScree
               : values.clients.trim().length > 0;
 
   return (
-    <div className="flex min-h-screen flex-col px-6 py-6">
+    <div className="flex min-h-screen md:min-h-0 md:h-full flex-col px-6 py-6">
       <div className="flex items-center gap-4">
         <button onClick={onBack} className="text-2xl leading-none text-ink" aria-label="Назад">
           ‹

@@ -8,7 +8,7 @@ const DOCS = [
 
 export function SigningScreen({ onSign }: { onSign: () => void }) {
   return (
-    <div className="flex min-h-screen flex-col px-6 py-8">
+    <div className="flex min-h-screen md:min-h-0 md:h-full flex-col px-6 py-8">
       <h1 className="text-h1 text-ink">Осталось подписать</h1>
       <p className="mt-3 text-body text-text-secondary">Проверь документы — подпись потребуется только один раз.</p>
 

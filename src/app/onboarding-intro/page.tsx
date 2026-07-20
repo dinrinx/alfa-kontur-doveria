@@ -54,8 +54,8 @@ export default function OnboardingIntroPage() {
   }
 
   return (
-    <div className="flex min-h-screen justify-center bg-surface">
-      <div className="flex w-full max-w-md flex-col bg-white">
+    <div className="flex min-h-screen md:min-h-0 md:h-full justify-center bg-surface">
+      <div className="flex w-full max-w-md flex-col bg-white md:h-full">
         <div className="flex items-center justify-between px-6 pt-6">
           <ProgressDots total={SLIDES.length} current={step} />
           {!isLast && (

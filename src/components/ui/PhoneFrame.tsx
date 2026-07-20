@@ -8,7 +8,7 @@ export function PhoneFrame({ children }: { children: ReactNode }) {
           <div className="h-6 w-32 rounded-full bg-neutral-900" />
         </div>
 
-        <div className="h-full w-full bg-white md:overflow-y-auto md:rounded-[46px]">{children}</div>
+        <div className="h-full w-full bg-white md:overflow-y-auto md:rounded-[46px] md:pt-11">{children}</div>
 
         <div className="pointer-events-none absolute inset-x-0 bottom-2 z-20 hidden justify-center md:flex">
           <div className="h-1.5 w-32 rounded-full bg-neutral-900/80" />

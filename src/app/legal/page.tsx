@@ -13,8 +13,8 @@ function LegalPageInner() {
   const [selectedCard, setSelectedCard] = useState<LegalCard | null>(initialCard);
 
   return (
-    <div className="flex justify-center bg-surface">
-      <div className="w-full max-w-md min-h-screen bg-white">
+    <div className="flex justify-center bg-surface md:h-full">
+      <div className="w-full max-w-md min-h-screen md:min-h-0 md:h-full bg-white">
         {selectedCard ? (
           <CardDetailScreen card={selectedCard} onBack={() => setSelectedCard(null)} />
         ) : (

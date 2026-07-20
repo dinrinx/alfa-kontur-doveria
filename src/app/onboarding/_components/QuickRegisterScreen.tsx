@@ -7,7 +7,7 @@ export function QuickRegisterScreen({ onDone }: { onDone: () => void }) {
   const [activity, setActivity] = useState("");
 
   return (
-    <div className="flex min-h-screen flex-col px-6 py-8">
+    <div className="flex min-h-screen md:min-h-0 md:h-full flex-col px-6 py-8">
       <h1 className="text-h1 text-ink">Быстрая регистрация</h1>
       <p className="mt-3 text-body text-text-secondary">Заполним статус самозанятого за тебя — это займёт минуту.</p>
 

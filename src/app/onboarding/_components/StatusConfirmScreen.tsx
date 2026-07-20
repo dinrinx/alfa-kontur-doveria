@@ -10,7 +10,7 @@ interface Props {
 
 export function StatusConfirmScreen({ legalForm, onChangeForm, onConfirm, onNotRegistered }: Props) {
   return (
-    <div className="flex min-h-screen flex-col px-6 py-8">
+    <div className="flex min-h-screen md:min-h-0 md:h-full flex-col px-6 py-8">
       <h1 className="text-h1 text-ink">Подтверди статус</h1>
       <p className="mt-3 text-body text-text-secondary">Мы определили твой статус по данным из песочницы.</p>
 

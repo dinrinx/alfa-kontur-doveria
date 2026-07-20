@@ -46,8 +46,8 @@ export default function OnboardingPage() {
   }
 
   return (
-    <div className="flex justify-center bg-surface">
-      <div className="w-full max-w-md bg-white">
+    <div className="flex justify-center bg-surface md:h-full">
+      <div className="w-full max-w-md bg-white md:h-full">
         {stage === "status" && (
           <StatusConfirmScreen
             legalForm={legalForm}
