@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { Suspense, useState } from "react";
 import { BottomNav } from "@/components/ui/BottomNav";
 import { useAppState } from "@/state/AppStateContext";
 import type { Campaign } from "@/types";
@@ -12,9 +13,11 @@ import { StabilityFundScreen } from "./_components/StabilityFundScreen";
 
 type View = "list" | "payment" | "compensation" | "fund" | "new-stability";
 
-export default function CampaignsPage() {
+function CampaignsPageInner() {
+  const searchParams = useSearchParams();
+  const initialView = searchParams.get("view") === "fund" ? "fund" : "list";
   const { dispatch, activeProfile } = useAppState();
-  const [view, setView] = useState<View>("list");
+  const [view, setView] = useState<View>(initialView);
 
   function handleNewStability(goal: string, amount: number) {
     const campaign: Campaign = {
@@ -35,7 +38,7 @@ export default function CampaignsPage() {
   }
 
   return (
-    <div className="flex justify-center bg-surface">
+    <div className="flex justify-center bg-surface md:h-full">
       <div className="w-full max-w-md bg-white pb-28">
         {view === "list" && (
           <CampaignListScreen
@@ -74,7 +77,15 @@ export default function CampaignsPage() {
           <NewStabilityCampaignScreen onBack={() => setView("list")} onSubmit={handleNewStability} />
         )}
       </div>
-      <BottomNav active="history" />
+      <BottomNav active="payments" />
     </div>
+  );
+}
+
+export default function CampaignsPage() {
+  return (
+    <Suspense fallback={null}>
+      <CampaignsPageInner />
+    </Suspense>
   );
 }

@@ -6,7 +6,7 @@ export type NavTab = "main" | "history" | "payments" | "storefront" | "chats";
 
 const TABS: { key: NavTab; label: string; href: string }[] = [
   { key: "main", label: "Главный", href: "/dashboard" },
-  { key: "history", label: "История", href: "/campaigns" },
+  { key: "history", label: "История", href: "/history" },
   { key: "payments", label: "Платежи", href: "/campaigns" },
   { key: "storefront", label: "Витрина", href: "/storefront" },
   { key: "chats", label: "Чаты", href: "/chats" },

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Input } from "@/components/ui/Input";
 import { LEGAL_CARDS, LEGAL_CATEGORIES, type LegalCard } from "@/lib/legalCards";
 
@@ -21,7 +22,10 @@ export function SearchScreen({ query, onQueryChange, onOpenCard }: Props) {
 
   return (
     <div className="flex flex-col px-6 py-6">
-      <h1 className="text-h1 text-ink">Юридические карточки</h1>
+      <Link href="/dashboard" className="text-2xl leading-none text-ink" aria-label="Назад">
+        ‹
+      </Link>
+      <h1 className="mt-4 text-h1 text-ink">Юридические карточки</h1>
       <div className="mt-4">
         <Input
           autoFocus

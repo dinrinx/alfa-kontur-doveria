@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 import { formatRub } from "@/lib/format";
@@ -14,11 +15,22 @@ interface Props {
 export function CampaignListScreen({ profile, onOpenLastPayment, onOpenFund, onNewStability }: Props) {
   return (
     <div className="flex flex-col px-6 py-6">
-      <h1 className="text-h1 text-ink">Сборы</h1>
+      <div className="flex items-center justify-between">
+        <h1 className="text-h1 text-ink">Сборы</h1>
+        <Link
+          href="/campaigns/new"
+          className="flex h-10 w-10 items-center justify-center rounded-full bg-ink text-xl font-semibold text-white"
+          aria-label="Создать сбор"
+        >
+          +
+        </Link>
+      </div>
 
       <div className="mt-4 flex flex-col gap-3">
         {profile.campaigns.map((c) => (
-          <CampaignCard key={c.id} campaign={c} />
+          <Link key={c.id} href={`/campaigns/${c.id}`}>
+            <CampaignCard campaign={c} />
+          </Link>
         ))}
       </div>
 

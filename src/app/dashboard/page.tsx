@@ -69,28 +69,34 @@ export default function DashboardPage() {
           </Link>
         </div>
 
-        <div className="mt-6 flex flex-col items-center px-6">
+        <Link href="/rating" className="mt-6 flex flex-col items-center px-6">
           <TrustRatingRing
             percent={trustRating.progressPercent}
             level={trustRating.level}
             nextLevel={trustRating.nextLevel}
           />
-        </div>
+        </Link>
 
         <div className="mt-6 px-6">
           <Card>
-            <p className="text-caption font-semibold uppercase text-text-secondary">Из чего складывается рейтинг</p>
+            <div className="flex items-center justify-between">
+              <p className="text-caption font-semibold uppercase text-text-secondary">Из чего складывается рейтинг</p>
+              <Link href="/rating" className="text-caption text-ink underline underline-offset-4">
+                Подробнее
+              </Link>
+            </div>
             <div className="mt-3 flex flex-col gap-3">
               <div className="text-body text-ink">
                 <p>Обороты по счёту</p>
                 <p className="mt-0.5 text-caption text-text-secondary">{trustRating.turnoverNote}</p>
               </div>
-              <div className="flex items-center justify-between text-body text-ink">
+              <Link href="/products" className="flex items-center justify-between text-body text-ink">
                 <span>Подключённые продукты</span>
-                <span className="text-caption text-text-secondary">
+                <span className="flex items-center gap-1 text-caption text-text-secondary">
                   {trustRating.productsConnected} из {trustRating.productsTotal}
+                  <span className="text-ink">›</span>
                 </span>
-              </div>
+              </Link>
               <div className="flex items-center justify-between text-body text-ink">
                 <span>Касса / эквайринг</span>
                 <span className="text-caption text-text-secondary">
@@ -106,10 +112,15 @@ export default function DashboardPage() {
             <p className="text-caption uppercase text-text-secondary">Текущий счёт</p>
             <p className="mt-1 text-[26px] font-bold text-ink">{formatRub(activeProfile.accountBalance)}</p>
           </Card>
-          <Card inverse>
-            <p className="text-caption uppercase text-white/70">Фонд стабильности</p>
-            <p className="mt-1 text-[26px] font-bold">{formatRub(activeProfile.stabilityFund)}</p>
-          </Card>
+          <Link href="/campaigns?view=fund">
+            <Card inverse>
+              <div className="flex items-center justify-between">
+                <p className="text-caption uppercase text-white/70">Фонд стабильности</p>
+                <span className="text-white/70">›</span>
+              </div>
+              <p className="mt-1 text-[26px] font-bold">{formatRub(activeProfile.stabilityFund)}</p>
+            </Card>
+          </Link>
         </div>
       </div>
       <BottomNav active="main" />
